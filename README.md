@@ -9,6 +9,7 @@ There are tutorials here that strive to help someone go from having heard of MCP
 
  * 01 - simple-mcp and mcp host - getting up and running with MCP on SLES 16.0
  * 02 - running simple-mcp securely
- * 03 - writing an agent using an agent platform to automate infrastructure management on SLES 16.0
- * 04 - writing agents for fleet management with Multi-Linux Manager
- * 05 - writing agents for cluster management with Rancher
+ * 03 - runtime security with ProofLayer - protecting MCP servers from prompt injection attacks
+ * 04 - writing an agent using an agent platform to automate infrastructure management on SLES 16.0
+ * 05 - writing agents for fleet management with Multi-Linux Manager
+ * 06 - writing agents for cluster management with Rancher
