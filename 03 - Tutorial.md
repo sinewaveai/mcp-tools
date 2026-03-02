@@ -10,7 +10,7 @@ MCP servers expose powerful tools (file access, shell commands, database queries
 - **Exfiltrate sensitive data** by reading `/etc/passwd`, SSH keys, or environment variables
 - **Bypass safety guardrails** through jailbreak prompts (DAN mode, developer overrides)
 
-ProofLayer Runtime Security acts as a transparent HTTP proxy between your MCP client and server. It inspects every `tools/call` JSON-RPC request, scores it against 50+ detection rules, and blocks threats before they reach your server.
+ProofLayer Runtime Security acts as a transparent HTTP proxy between your MCP client and server. It inspects every `tools/call` JSON-RPC request, scores it against 71 detection rules across 8 categories, and blocks threats before they reach your server.
 
 ## Prerequisites
 
@@ -194,7 +194,7 @@ MCP Client                ProofLayer Proxy              simple-mcp
 ```
 
 1. **Intercept**: The proxy captures every `tools/call` JSON-RPC request.
-2. **Scan**: The detection engine evaluates all tool arguments against 50+ rules covering command injection, prompt injection, data exfiltration, and jailbreaks.
+2. **Scan**: The detection engine evaluates all tool arguments against 71 rules across 8 categories covering command injection, prompt injection, data exfiltration, jailbreaks, SSRF/XXE, SQL injection, role manipulation, and tool poisoning.
 3. **Score**: Each request receives a risk score from 0 to 100.
 4. **Act**: Requests scoring below 70 are forwarded to the backend. Requests scoring 70+ are blocked, and a security report is written to `./security-reports/`.
 
@@ -211,7 +211,7 @@ Each report includes the threat type, tool name, arguments, risk score, matched 
 
 ## Configuration
 
-ProofLayer can be configured via a `prooflayer.yaml` file. See the [Configuration Reference](https://github.com/prooflayer/prooflayer-runtime/blob/main/docs/configuration.md) for details on:
+ProofLayer can be configured via a `prooflayer.yaml` file. See the [Configuration Reference](https://github.com/sinewaveai/prooflayer-runtime/blob/main/docs/configuration.md) for details on:
 
 - Custom detection rules
 - Score thresholds (ALLOW/WARN/BLOCK/KILL)
@@ -220,6 +220,6 @@ ProofLayer can be configured via a `prooflayer.yaml` file. See the [Configuratio
 
 ## Next Steps
 
-- Read the [DEMO_SCRIPT.md](../DEMO_SCRIPT.md) for a complete walkthrough with expected outputs
+- Read the [DEMO_SCRIPT.md](prooflayer/DEMO_SCRIPT.md) for a complete walkthrough with expected outputs
 - Explore custom detection rules in `prooflayer/rules/`
 - Try `--report-dir` to customize where security reports are saved
